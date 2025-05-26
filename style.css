@@ -1,0 +1,178 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to right, #ffe6f0, #e0f7fa);
+  text-align: center;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}
+
+/* Balloon container */
+.balloon-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.balloon {
+  width: 30px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -100px;
+  animation: floatUp 8s infinite ease-in;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.red { background: #e74c3c; left: 20%; animation-delay: 0s; }
+.blue { background: #3498db; left: 40%; animation-delay: 2s; }
+.yellow { background: #f1c40f; left: 60%; animation-delay: 4s; }
+.green { background: #2ecc71; left: 80%; animation-delay: 6s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-110vh); }
+}
+
+/* Greeting Container */
+.container {
+  background: white;
+  margin: 40px auto 20px;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #ff69b4;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.2em;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.heart {
+  font-size: 2em;
+  animation: pulse 1.5s infinite;
+  margin-bottom: 10px;
+}
+
+h6 {
+  font-weight: 600;
+  color: #888;
+}
+
+/* Photo Section */
+.photo-section {
+  max-width: 600px;
+  margin: 0 auto 50px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.photo-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5em;
+  color: #ff69b4;
+  margin-bottom: 20px;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.photo-gallery img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Play button */
+#play-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: #ff69b4;
+  color: white;
+  display: none;
+}
+
+/* Show play button */
+#play-btn.show {
+  display: block;
+}
+
+/* Responsive */
+@media screen and (max-width: 650px) {
+  .container, .photo-section {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .photo-gallery img {
+    width: 100%;
+    height: auto;
+    max-width: 180px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .photo-section h2 {
+    font-size: 1.8em;
+  }
+}
